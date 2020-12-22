@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 public class SparseArray {
     public static void main(String[] args) {
-
         int[][] arr = new int[6][7];
         arr[0][3] = 22;
         arr[0][6] = 15;
