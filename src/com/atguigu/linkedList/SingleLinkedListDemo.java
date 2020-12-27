@@ -1,5 +1,10 @@
 package com.atguigu.linkedList;
 
+import java.util.Stack;
+
+/**
+ * 模拟单项列表
+ */
 public class SingleLinkedListDemo {
     public static void main(String[] args) {
         HeroNode hero1 = new HeroNode(1, "宋江", "及时雨");
@@ -25,13 +30,82 @@ public class SingleLinkedListDemo {
         //修改节点
         singleLinkedList.update(new HeroNode(2,"秦明","霹雳火"));
         singleLinkedList.list();
-        //
+        //有效节点的个数
+        System.out.println("================================");
+        System.out.println("该链表的有效节点个数为"+singleLinkedList.getNodeNum());
+        //倒数第3个节点
+        System.out.println("倒数第三个节点为"+singleLinkedList.backNode(3));
+        System.out.println("================================");
+        singleLinkedList.reverse();
+        System.out.println("反转后的链表为:");
+        singleLinkedList.list();
+        System.out.println("================================");
+        System.out.println("反向打印列表");
+        singleLinkedList.backPrint();
     }
+
+
+
 }
 
 class SingleLinkedList {
 
     private HeroNode headNode = new HeroNode(0, "", "");
+
+    /**
+     * 利用栈的方式从尾到头打印单链表
+     */
+    public void backPrint(){
+        HeroNode temp = headNode.next;
+        Stack stack = new Stack();
+        while (temp!=null){
+            stack.push(temp);
+            temp = temp.next;
+        }
+        while (!stack.isEmpty()){
+            HeroNode pop = (HeroNode) stack.pop();
+            System.out.println(pop);
+        }
+    }
+
+    /**
+     * 单链表的反转【腾讯面试题，有点难度】
+     */
+
+    public void reverse(){
+        HeroNode temp = headNode.next;
+        HeroNode newHeadNode = new HeroNode(0,"","");
+        while (temp!=null){
+            HeroNode var = temp.next;
+            temp.next = newHeadNode.next;
+            newHeadNode.next = temp;
+            temp = var;
+        }
+        this.headNode = newHeadNode;
+    }
+
+    /**
+     * 求单链表中有效节点的个数
+     */
+    public int getNodeNum(){
+        int count = 0;
+        HeroNode temp = headNode.next;
+        while (temp!=null){
+            count++;
+            temp = temp.next;
+        }
+        return count;
+    }
+
+    //查找单链表中的倒数第k个结点【新浪面试题】
+    public HeroNode backNode(int k){
+        HeroNode temp = headNode;
+        int count = getNodeNum();
+        for (int i=0;i<count-k+1;i++){
+            temp = temp.next;
+        }
+        return temp;
+    }
 
     //遍历整个链表
     public void list() {
