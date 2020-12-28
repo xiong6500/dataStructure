@@ -3,11 +3,11 @@ package com.demo.annotation;
 import java.lang.reflect.Field;
 
 public class TestPerson {
-    public static com.demo.annotaion.Person getPersonInstance() throws Exception {
+    public static Person getPersonInstance() throws Exception {
         //获得人员类的类信息对象
-        Class classz = com.demo.annotaion.Person.class;
+        Class classz = Person.class;
         //获得注解
-        com.demo.annotaion.PersonDefaultAnnotaion pda = (com.demo.annotaion.PersonDefaultAnnotaion) classz.getAnnotation(com.demo.annotaion.PersonDefaultAnnotaion.class);
+        PersonDefaultAnnotaion pda = (PersonDefaultAnnotaion) classz.getAnnotation(PersonDefaultAnnotaion.class);
         //获得注解属性
         /*String username = pda.username();
         int age = pda.age();
@@ -24,7 +24,7 @@ public class TestPerson {
         field = classz.getDeclaredField("gender");
         field.setAccessible(true);
         field.set(person,gender);*/
-        com.demo.annotaion.Person person = (com.demo.annotaion.Person) classz.newInstance();
+        Person person = (Person) classz.newInstance();
         Field[] fields = classz.getDeclaredFields();
         for (Field field : fields) {
             // 取消访问权限private
@@ -36,7 +36,7 @@ public class TestPerson {
     }
 
     public static void main(String[] args) throws Exception {
-        com.demo.annotaion.Person personInstance = getPersonInstance();
+        Person personInstance = getPersonInstance();
         System.out.println(personInstance);
     }
 }
