@@ -6,8 +6,8 @@ package com.atguigu.sort;
 public class BubbleSort {
     public static void main(String[] args) {
 //        int arr[] = {3, 9, -1, 10, 20, 50, 23, 41, -10};
-        int[] arr = new int[800000];
-        for (int i = 0; i < 800000; i++) {
+        int[] arr = new int[80000];
+        for (int i = 0; i < 80000; i++) {
             arr[i] = (int) (Math.random() * 8000000);//生成一个[0,8000000)数
         }
         long start = System.currentTimeMillis();
