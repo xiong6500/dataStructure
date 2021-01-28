@@ -19,6 +19,7 @@ public class OrderTest1 {
         for (Object o : list) {
             System.out.print(o+" ");
         }
+        System.out.println("你好123");
         System.out.println("你好3123");
     }
 }
