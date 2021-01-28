@@ -20,6 +20,6 @@ public class OrderTest1 {
             System.out.print(o+" ");
         }
         System.out.println("你好123");
-        System.out.println("你好251555");
+        System.out.println("你好228");
     }
 }
