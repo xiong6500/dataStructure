@@ -19,5 +19,6 @@ public class OrderTest1 {
         for (Object o : list) {
             System.out.print(o+" ");
         }
+        System.out.println("你好");
     }
 }
