@@ -21,7 +21,5 @@ public class OrderTest1 {
         }
         System.out.println("你好123");
         System.out.println("你好22226");
-        System.out.println("你好22223");
-        System.out.println("你好22223");
     }
 }
